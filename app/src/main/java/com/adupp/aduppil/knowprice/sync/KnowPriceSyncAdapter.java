@@ -83,7 +83,6 @@ public class KnowPriceSyncAdapter extends AbstractThreadedSyncAdapter {
 
     @Override
     public void onPerformSync(Account account, Bundle extras, String authority, ContentProviderClient contentProviderClient, SyncResult syncResult) {
-        Log.d(LOG_TAG, "Starting sync");
         String countryQuery = Utility.getPreferredCountryadapter(getContext());
         Log.d(LOG_TAG, countryQuery);
         countryQuery = countryQuery.replace(" ","_").toLowerCase();

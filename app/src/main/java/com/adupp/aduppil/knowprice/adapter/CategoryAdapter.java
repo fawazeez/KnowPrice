@@ -33,7 +33,6 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
     final private Context mContext;
 
     public CategoryAdapter(Context context, CategoryAdapterOnClickHandler dh, View emptyView, int choiceMode) {
-        Log.d("Adapter","constuctor");
         mContext = context;
         mEmptyView = emptyView;
         mClickHandler = dh;
@@ -50,7 +49,6 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
 
     public void swapCursor(Cursor newCursor) {
         mCursor = newCursor;
-        Log.d("Adapter","swapCursor");
         notifyDataSetChanged();
         mEmptyView.setVisibility(getItemCount() == 0 ? View.VISIBLE : View.GONE);
     }
@@ -64,7 +62,6 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        Log.d("Adapter","onCreate");
     if(parent instanceof RecyclerView) {
     int layoutId = R.layout.list_item_category;
     View view = LayoutInflater.from(parent.getContext()).inflate(layoutId, parent, false);
@@ -79,7 +76,6 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        Log.d("Adapter","onBind");
         mCursor.moveToPosition(position);
         String category = mCursor.getString(CategoryFragment.COL_CATEGORY_NAME);
         holder.categoryView.setText(category);

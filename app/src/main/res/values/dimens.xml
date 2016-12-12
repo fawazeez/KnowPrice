@@ -9,6 +9,9 @@
     <dimen name="appbar_elev">4dp</dimen>
     <dimen name="appbar_height">100dp</dimen>
 
+    <dimen name="category_card_width">100dp</dimen>
+    <dimen name="category_card_corner">8dp</dimen>
+
     <integer  name="grid_columns">3</integer>
 
     <dimen name="item_image">50dp</dimen>

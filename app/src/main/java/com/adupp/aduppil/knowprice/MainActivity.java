@@ -28,6 +28,7 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
@@ -87,6 +88,13 @@ public class MainActivity extends AppCompatActivity implements CategoryFragment.
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_offer, menu);
+        GoogleApiAvailability apiAvailability = GoogleApiAvailability.getInstance();
+        int resultcode = apiAvailability.isGooglePlayServicesAvailable(this);
+        MenuItem item = menu.findItem(R.id.action_LocationSync);
+        if (resultcode != ConnectionResult.SUCCESS)
+            item.setVisible(false);
+        else
+            item.setVisible(true);
         return true;
     }
 
@@ -244,7 +252,7 @@ public class MainActivity extends AppCompatActivity implements CategoryFragment.
         if (country != null && city != null) {
             if (!country.equals(mCountry) && city.equals(mCity))
                 Toast.makeText(this,getString(R.string.updateCity),Toast.LENGTH_SHORT).show();
-            else if (!country.equals(mCountry) || !city.equals(mCity) || sync){
+             if (!country.equals(mCountry) || !city.equals(mCity) || sync){
                 CategoryFragment ff = (CategoryFragment) getSupportFragmentManager().findFragmentById(R.id.fragment_category);
                 if (null != ff) {
                     ff.onLocationChanged();

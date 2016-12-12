@@ -38,7 +38,6 @@ public FetchAddress()
     protected ResultReceiver mReceiver;
 
     private void deliverResultToReceiver(int resultCode, String country,String city) {
-        Log.d(TAG,"Inside DELIVERY RESULT ");
         Bundle bundle = new Bundle();
         bundle.putString(Constants.RESULT_COUNTRY_KEY, country);
         bundle.putString(Constants.RESULT_CITY_KEY, city);
@@ -49,7 +48,6 @@ public FetchAddress()
     protected void onHandleIntent(Intent intent) {
         Geocoder geocoder = new Geocoder(this, Locale.getDefault());
         String errorMessage = "";
-        Log.d(TAG,"INside FetcgAddress ");
 
         // Get the location passed to this service through an extra.
         Location location = intent.getParcelableExtra(

@@ -88,7 +88,7 @@ public class ShoppingListActivity extends AppCompatActivity implements LoaderMan
 //                        .setAction("Action", null).show();
                 userPrompt = (LayoutInflater.from(ShoppingListActivity.this)).inflate(R.layout.prompt_shoppinglist,null);
                 AlertDialog.Builder builder = new AlertDialog.Builder(ShoppingListActivity.this);
-                builder.setTitle("Shopping List");
+                builder.setTitle(getString(R.string.title_activity_shopping_list));
                 builder.setView(userPrompt).setPositiveButton(getString(R.string.add), null);
                 itemText = (EditText)userPrompt.findViewById(R.id.itemText);
                 qtyText = (EditText)userPrompt.findViewById(R.id.qtyText);
@@ -133,7 +133,7 @@ public class ShoppingListActivity extends AppCompatActivity implements LoaderMan
                                             null);
 
                                     if (shoppingListCursor.moveToFirst()) {
-                                        Toast.makeText(ShoppingListActivity.this, "Item Exists in shopping List", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(ShoppingListActivity.this, getString(R.string.item_exist_message), Toast.LENGTH_SHORT).show();
                                     } else {
                                         ContentValues shoppingListValues = new ContentValues();
 //                                        String[] strArray = itemName.split(" ");
@@ -161,7 +161,7 @@ public class ShoppingListActivity extends AppCompatActivity implements LoaderMan
 
                                     dialog.dismiss();
                                 }
-                                Toast toast = Toast.makeText(ShoppingListActivity.this,message,Toast.LENGTH_LONG);
+                                Toast toast = Toast.makeText(ShoppingListActivity.this,message,Toast.LENGTH_SHORT);
                                 toast.setGravity(Gravity.CENTER,0,0);
                                 toast.show();
 

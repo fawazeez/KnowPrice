@@ -72,12 +72,12 @@ public class Utility {
         java.util.Date strDate = new java.util.Date();
         String tdyDate = "o";
         try {
-//                                strDate = sdf.parse("20161205");
-            tdyDate = sdf.format(strDate);
+                              strDate = sdf.parse("20161205");
+//            tdyDate = sdf.format(strDate);
         } catch (Exception e) {
             e.printStackTrace();
         }
-     return "today";
+     return strDate.toString();
     }
 
     public static Long curDate()  {

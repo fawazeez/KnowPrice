@@ -45,7 +45,11 @@
 
     <string name="title_widget_detail">ShoppingList</string>
 
-    <string name="empty_category_list">No Offer Information Available</string>
+    <string name="today">Today</string>
+    <string name="tomorrow">Tomorrow</string>
+
+<string name="item_exist_message"></string>
+    <string name="empty_category_list">No Information Available.Try updating Location in settings</string>
     <string name="empty_offer_list">No Offer Available</string>
     <string name="empty_shopping_list">Add Items to your List</string>
     <string name="empty_category_no_network">NetWork Not available</string>
@@ -62,7 +66,7 @@
     <string name="qtyNull">Enter Quantity</string>
     <string name="shopByNull">Enter Shop By Days</string>
     <string name="itemAdded">Item Added</string>
-    <string name="updateCity">Country Updated. Update City Also</string>
+    <string name="updateCity">Country Updated. Verify City if needed</string>
     <string name="action_shoppingList">Shopping List</string>
     <string name="action_LocationSync">Location Sync</string>
     <string name="radio_Pcs">Pcs</string>

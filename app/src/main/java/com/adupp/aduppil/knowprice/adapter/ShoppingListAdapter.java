@@ -39,9 +39,9 @@ public class ShoppingListAdapter extends CursorAdapter {
             e.printStackTrace();
         }
         if (Days.contentEquals("0"))
-             daySeq = "Today";
+             daySeq = mContext.getString(R.string.today);
         else if (Days.contentEquals("1"))
-            daySeq = "by Tomorrow";
+            daySeq = "by " + mContext.getString(R.string.tomorrow);
         else
             daySeq = "by " + Days + " days";
         Resources res = mContext.getResources();
