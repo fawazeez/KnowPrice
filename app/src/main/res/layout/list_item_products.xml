@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/offerLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="top"
+    android:orientation="horizontal"
+    android:paddingBottom="@dimen/list_padding"
+    android:background="@drawable/touch_selector">
+    <FrameLayout
+        android:layout_width="@dimen/item_image"
+        android:layout_height="@dimen/item_image">
+    <ImageView
+        android:scaleType="fitStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:id="@+id/itemImageView" />
+    </FrameLayout>
+ <LinearLayout
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+     android:layout_weight="1"
+    android:orientation="vertical">
+    <TextView
+        android:text="Item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="2"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:id="@+id/itemTextView" />
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:orientation="horizontal">
+    <TextView
+        android:text="Actual Price :"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="2"
+        android:id="@+id/actualLabelView" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="2"
+        android:id="@+id/actualTextView" />
+</LinearLayout>
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:text="Offer Price:"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorOffer"
+            android:maxLines="2"
+            android:id="@+id/offerLabelView" />
+
+        <TextView
+            android:text="TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="2"
+            android:textColor="@color/colorOffer"
+            android:id="@+id/offerTextView" />
+    </LinearLayout>
+    <TextView
+        android:text="Location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="2"
+        android:id="@+id/locationTextView" />
+</LinearLayout>
+        <ImageView
+            android:scaleType="fitCenter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:id="@+id/locationImageView" />
+</LinearLayout>

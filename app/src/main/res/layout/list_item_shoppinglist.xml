@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/touch_selector"
+    android:paddingLeft="@dimen/abc_list_item_padding_horizontal_material"
+    android:paddingRight="@dimen/abc_list_item_padding_horizontal_material"
+    android:paddingBottom="@dimen/list_padding"
+    >
+
+<TextView
+    android:id="@+id/listItemTextView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:maxLines="2"
+    android:fontFamily="sans-serif-light"
+    android:textColor="@color/primary_text"
+    android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+    />
+    </FrameLayout>
+

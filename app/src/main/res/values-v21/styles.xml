@@ -1,0 +1,23 @@
+<resources>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+    <style name="SettingsTheme" parent="@style/Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+    </style>
+    <style name="AppTheme.Category" parent="AppTheme">
+<item name="android:windowContentTransitions">true</item>
+    </style>
+
+    <style name="AppTheme.Offer" parent="AppTheme">
+    <item name="android:windowContentTransitions">true</item>
+    <item name="android:windowEnterTransition">@transition/offer_enter_transition</item>
+        <item name="android:windowReturnTransition">@transition/offer_return_transition</item>
+
+    </style>
+</resources>

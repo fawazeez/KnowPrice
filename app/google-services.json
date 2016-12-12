@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1034786402609",
+    "firebase_url": "https://knowprice-a865c.firebaseio.com",
+    "project_id": "knowprice-a865c",
+    "storage_bucket": "knowprice-a865c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1034786402609:android:4f3281608a8f116b",
+        "android_client_info": {
+          "package_name": "com.adupp.aduppil.knowprice"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1034786402609-o8sqsq1tdeduagmpii4atulilr7hj1a5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.adupp.aduppil.knowprice",
+            "certificate_hash": "AF639A8392E6355A7D72AA4E0BB1D6CE49873406"
+          }
+        },
+        {
+          "client_id": "1034786402609-mtu3d62it9e6aua2t96lfrqleim0d88m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCSxooqfFqF-_v4BTaxoTdWrB6R0-wDH0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1034786402609-mtu3d62it9e6aua2t96lfrqleim0d88m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

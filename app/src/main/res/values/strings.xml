@@ -1,0 +1,74 @@
+<resources xmlns:xliff="http://schemas.android.com/tools">
+    <string name="app_name">KnowPrice</string>
+    <string name="pref_enable_notifications_key">Enabled</string>
+    <string name="pref_enable_notifications_default">Not Enabled</string>
+    <string name="pref_last_notification">OFFER</string>
+    <string name="format_notification">Item: <xliff:g id="item">%1$s</xliff:g> on sale for offerprice <xliff:g id="offer">%2$s</xliff:g>  at <xliff:g id="shop">%3$s</xliff:g></string>
+    <string name="format_shoppingList">Shop<xliff:g id="condition">%1$s</xliff:g> ActualPrice: <xliff:g id="act">%2$s</xliff:g> OfferPrice: <xliff:g id="offer">%3$s</xliff:g></string>
+    <string name="title_activity_shopping_list">Shopping List</string>
+    <string name="title_activity_offer">Offers</string>
+    <string name="action_settings">Settings</string>
+    <string name="sync_account_type">com.adupp.aduppil</string>
+    <string name="content_authority">com.adupp.aduppil.knowprice</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Strings related to Settings -->
+
+    <!-- Example General settings -->
+    <string name="pref_header_general">General</string>
+
+    <string name="pref_country_key" translatable="false">Country</string>
+    <string name="pref_country_default" translatable="false">International</string>
+    <string name="pref_country_label">Country</string>
+
+    <string name="pref_city_key" translatable="false">City</string>
+    <string name="pref_city_default" translatable="false">All</string>
+    <string name="pref_city_label">City</string>
+
+
+    <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="textview">TextView</string>
+    <string name="radio_Kgs">Kgs</string>
+    <string name="radio_Pkt">Pkt</string>
+    <string name="item_hint">Item</string>
+    <string name="qty_hint">Qty</string>
+    <string name="shopBy_hint">Shop by</string>
+    <string name="shopbyDays">Days</string>
+
+    <string name="a11y_category">Category: <xliff:g id="condition">%1$s</xliff:g></string>
+    <string name="a11y_offer">Offer: <xliff:g id="condition">%1$s</xliff:g></string>
+    <string name="a11y_item">Item: <xliff:g id="condition">%1$s</xliff:g></string>
+    <string name="a11y_location">Available at: <xliff:g id="condition">%1$s</xliff:g></string>
+    <!-- For Empty List View -->
+
+    <string name="shopping_list">SHOP <xliff:g id="item">%1$s</xliff:g> - <xliff:g id="qty">%2$s</xliff:g>  <xliff:g id="uom">%3$s</xliff:g>  <xliff:g id="day">%4$s</xliff:g> </string>
+
+    <string name="title_widget_detail">ShoppingList</string>
+
+    <string name="empty_category_list">No Offer Information Available</string>
+    <string name="empty_offer_list">No Offer Available</string>
+    <string name="empty_shopping_list">Add Items to your List</string>
+    <string name="empty_category_no_network">NetWork Not available</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+    <string name="empty_widget_list">No Item to shop in 2 days</string>
+    <string name="address_found">Address  Found</string>
+    <string name="no_address_found">Address not found</string>
+    <string name="invalid_lat_long_used">Invalid Latitude Longitude</string>
+    <string name="service_not_available">Service not availble</string>
+    <string name="no_geocoder_available">No GeoCode Available</string>
+    <string name="add">Add Item</string>
+    <string name="itemNull">Enter Item</string>
+    <string name="qtyNull">Enter Quantity</string>
+    <string name="shopByNull">Enter Shop By Days</string>
+    <string name="itemAdded">Item Added</string>
+    <string name="updateCity">Country Updated. Update City Also</string>
+    <string name="action_shoppingList">Shopping List</string>
+    <string name="action_LocationSync">Location Sync</string>
+    <string name="radio_Pcs">Pcs</string>
+    <string name="Loading">Loading</string>
+    <string name="locationSyncInfo">Location Updated to current Location</string>
+    <string name="pref_enable_notifications_label">Offer Notifications</string>
+    <string name="pref_enable_notifications_false">Not Enabled</string>
+    <string name="pref_enable_notifications_true">Enabled</string>
+</resources>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="SettingsTheme" parent="@style/Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:actionBarStyle">@style/ActionBar.V14.Knowprice</item>
+        <item name="actionBarStyle">@style/ActionBar.V14.Knowprice</item>
+    </style>
+
+    <!-- Settings activity action bar styles -->
+    <style name="ActionBar.V14.Knowprice" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="background">@color/colorPrimary</item>
+        <item name="android:height">56dp</item>
+    </style>
+</resources>
