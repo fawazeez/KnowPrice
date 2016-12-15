@@ -229,6 +229,7 @@ public class KnowPriceSyncAdapter extends AbstractThreadedSyncAdapter {
 
     private long addCategory(String category, String catimage) {
         long categoryId;
+        category = category.trim().toLowerCase();
         Cursor categoryCursor = getContext().getContentResolver().query(
                 KnowPriceContract.CategoryEntry.CONTENT_URI,
                 new String[]{KnowPriceContract.CategoryEntry._ID},

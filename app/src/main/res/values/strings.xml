@@ -48,8 +48,9 @@
     <string name="today">Today</string>
     <string name="tomorrow">Tomorrow</string>
 
-<string name="item_exist_message"></string>
+    <string name="item_exist_message"> Item already added</string>
     <string name="empty_category_list">No Information Available.Try updating Location in settings</string>
+    <string name="empty_category_search">No Offers available for <xliff:g id="item">%1$s</xliff:g> Try different category</string>
     <string name="empty_offer_list">No Offer Available</string>
     <string name="empty_shopping_list">Add Items to your List</string>
     <string name="empty_category_no_network">NetWork Not available</string>
@@ -59,7 +60,7 @@
     <string name="address_found">Address  Found</string>
     <string name="no_address_found">Address not found</string>
     <string name="invalid_lat_long_used">Invalid Latitude Longitude</string>
-    <string name="service_not_available">Service not availble</string>
+    <string name="service_not_available">Service not available</string>
     <string name="no_geocoder_available">No GeoCode Available</string>
     <string name="add">Add Item</string>
     <string name="itemNull">Enter Item</string>
@@ -75,4 +76,5 @@
     <string name="pref_enable_notifications_label">Offer Notifications</string>
     <string name="pref_enable_notifications_false">Not Enabled</string>
     <string name="pref_enable_notifications_true">Enabled</string>
+    <string name="action_search">SEARCH CATEGORY</string>
 </resources>

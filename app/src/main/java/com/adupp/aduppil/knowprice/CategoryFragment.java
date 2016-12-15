@@ -11,7 +11,6 @@ import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -20,10 +19,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.AbsListView;
-import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.adupp.aduppil.knowprice.adapter.CategoryAdapter;
 import com.adupp.aduppil.knowprice.data.KnowPriceContract;
@@ -40,6 +37,7 @@ public class CategoryFragment extends Fragment implements LoaderManager.LoaderCa
 
     private static final String SELECTED_KEY = "selected_position";
     private int mChoiceMode;
+    private String mFilter;
     private boolean mAutoSelectView;
     private int mPane=1;
     private static final int CATEGORY_LOADER = 0;
@@ -96,18 +94,22 @@ mPosition = vh.getAdapterPosition();
     }
 
     private void updateEmptyView() {
-        if ( mCategoryAdapter.getItemCount() == 0 ) {
+        if (mCategoryAdapter.getItemCount() == 0) {
             TextView tv = (TextView) getView().findViewById(R.id.recycleview_category_empty);
+            int message = R.string.empty_category_list;
+            boolean networkAvailable = Utility.isNetworkAvailable(getActivity());
             if (null != tv) {
-                int message = R.string.empty_category_list;
-                if (!Utility.isNetworkAvailable(getActivity())) {
-                    message = R.string.empty_category_no_network;
-                }else
-                {
-                    Utility.setPreferredLocation(getContext(),getString(R.string.pref_country_default),getString(R.string.pref_city_default));
-                    onLocationChanged();
+                if (mFilter != null)
+                    tv.setText(String.format(getString(R.string.empty_category_search), mFilter));
+                else {
+                    if (!networkAvailable) {
+                        message = R.string.empty_category_no_network;
+                    } else {
+                        Utility.setPreferredLocation(getContext(), getString(R.string.pref_country_default), getString(R.string.pref_city_default));
+                        onLocationChanged(null);
+                    }
+                    tv.setText(message);
                 }
-                tv.setText(message);
             }
         }
     }
@@ -133,7 +135,9 @@ mPosition = vh.getAdapterPosition();
         super.onActivityCreated(savedInstanceState);
     }
 
-    void onLocationChanged( ) {
+    void onLocationChanged( String filter) {
+        mFilter = filter;
+        if (filter == null)
         updateCategory();
         getLoaderManager().restartLoader(CATEGORY_LOADER, null, this);
     }
@@ -155,7 +159,11 @@ mPosition = vh.getAdapterPosition();
 
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-        Uri CategoryUri = KnowPriceContract.CategoryEntry.buildCategoryFullUri();
+        Uri CategoryUri;
+        if (mFilter != null)
+            CategoryUri = KnowPriceContract.CategoryEntry.buildCategoryFilerUri(mFilter);
+        else
+            CategoryUri = KnowPriceContract.CategoryEntry.buildCategoryFullUri();
         Log.d(LOG_TAG,CategoryUri.toString() );
         return new CursorLoader(getActivity(),
                 CategoryUri,

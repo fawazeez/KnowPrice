@@ -45,7 +45,9 @@ public class ShoppingListAdapter extends CursorAdapter {
         else
             daySeq = "by " + Days + " days";
         Resources res = mContext.getResources();
-        String UXformat = String.format(res.getString(R.string.shopping_list),cursor.getString(ShoppingListActivity.COL_ITEM_NAME),cursor.getString(ShoppingListActivity.COL_ITEM_QTY),cursor.getString(ShoppingListActivity.COL_ITEM_UOM),daySeq);
+        String itemName = cursor.getString(ShoppingListActivity.COL_ITEM_NAME);
+        itemName = itemName.substring(0,1).toUpperCase() + itemName.substring(1);
+        String UXformat = String.format(res.getString(R.string.shopping_list),itemName,cursor.getString(ShoppingListActivity.COL_ITEM_QTY),cursor.getString(ShoppingListActivity.COL_ITEM_UOM),daySeq);
         return UXformat;
 //        return cursor.getString(ShoppingListActivity.COL_ITEM_NAME) +
 //                " - " + cursor.getString(ShoppingListActivity.COL_ITEM_QTY)

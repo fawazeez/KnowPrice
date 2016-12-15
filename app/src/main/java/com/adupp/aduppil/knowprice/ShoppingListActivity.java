@@ -109,6 +109,7 @@ public class ShoppingListActivity extends AppCompatActivity implements LoaderMan
                             @Override
                             public void onClick(View view) {
                                 String itemName = itemText.getText().toString();
+                                itemName = itemName.trim().toLowerCase();
                                 String qty =  qtyText.getText().toString();
                                 String shopBy = shopByText.getText().toString();
                                 int selectedId = radioQtyGroup.getCheckedRadioButtonId();
@@ -134,6 +135,7 @@ public class ShoppingListActivity extends AppCompatActivity implements LoaderMan
 
                                     if (shoppingListCursor.moveToFirst()) {
                                         Toast.makeText(ShoppingListActivity.this, getString(R.string.item_exist_message), Toast.LENGTH_SHORT).show();
+                                        shoppingListCursor.close();
                                     } else {
                                         ContentValues shoppingListValues = new ContentValues();
 //                                        String[] strArray = itemName.split(" ");
@@ -142,7 +144,6 @@ public class ShoppingListActivity extends AppCompatActivity implements LoaderMan
 //                                            String cap = s.substring(0, 1).toUpperCase() + s.substring(1);
 //                                            builder.append(cap + " ");
 //                                        }
-                                        itemName = itemName.substring(0,1).toUpperCase() + itemName.substring(1);
                                         shoppingListValues.put(KnowPriceContract.ShoppingListEntry.COLUMN_ITEM_NAME, itemName);
                                         shoppingListValues.put(KnowPriceContract.ShoppingListEntry.COLUMN_ITEM_QTY, qty);
                                         shoppingListValues.put(KnowPriceContract.ShoppingListEntry.COLUMN_ITEM_PUR_DATE, Utility.dateAdd(shopByDays));

@@ -6,27 +6,16 @@ import android.net.Uri;
 import android.provider.BaseColumns;
 import android.text.format.Time;
 
-/**
- * Created by fawaz on 11/14/2016.
- */
 
 public class KnowPriceContract {
     public static final String CONTENT_AUTHORITY = "com.adupp.aduppil.knowprice";
 
 
-    public static final Uri BASE_CONTENT_URI = Uri.parse("content://" + CONTENT_AUTHORITY);
+    private static final Uri BASE_CONTENT_URI = Uri.parse("content://" + CONTENT_AUTHORITY);
     public static final String PATH_CATEGORY = "category";
     public static final String PATH_SHOPPING_LIST = "shoppinglist";
     public static final String PATH_ITEM = "item";
     public static final String PATH_LOCATION = "location";
-
-    public static long normalizeDate(long startDate) {
-        // normalize the start date to the beginning of the (UTC) day
-        Time time = new Time();
-        time.set(startDate);
-        int julianDay = Time.getJulianDay(startDate, time.gmtoff);
-        return time.setJulianDay(julianDay);
-    }
 
     public static final class CategoryEntry implements BaseColumns {
         public static final Uri CONTENT_URI =
@@ -47,8 +36,15 @@ public class KnowPriceContract {
             return ContentUris.withAppendedId(CONTENT_URI, id);
         }
 
-        public static Uri buildCategoryFullUri() {
+        public static Uri buildCategoryFilerUri(String category) {
+            return CONTENT_URI.buildUpon().appendPath(category).build();
+        }
 
+        public static String getFilterFromUri(Uri uri) {
+            return uri.getPathSegments().get(1);
+        }
+
+        public static Uri buildCategoryFullUri() {
             return CONTENT_URI;
         }
     }

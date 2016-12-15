@@ -19,18 +19,18 @@ public class KnowPriceProvider extends ContentProvider {
     private static final UriMatcher sUriMatcher = buildUriMatcher();
 
     static final int CATEGORY = 100;
-//    static final int WEATHER_WITH_LOCATION = 101;
-//    static final int WEATHER_WITH_LOCATION_AND_DATE = 102;
     static final int ITEM = 300;
     static final int LOCATION = 400;
     static final int SHOPPINGLIST = 500;
     static final int ITEM_FOR_CATEGORY = 600;
     static final int ITEM_FOR_NOTIFICATION = 700;
+    static final int FILTER_CATEGORY = 800;
 
      static UriMatcher buildUriMatcher() {
          final UriMatcher matcher = new UriMatcher(UriMatcher.NO_MATCH);
          final String authority = KnowPriceContract.CONTENT_AUTHORITY;
          matcher.addURI(authority, KnowPriceContract.PATH_CATEGORY, CATEGORY);
+         matcher.addURI(authority, KnowPriceContract.PATH_CATEGORY + "/*", FILTER_CATEGORY);
          matcher.addURI(authority, KnowPriceContract.PATH_ITEM + "/#", ITEM_FOR_CATEGORY);
          matcher.addURI(authority, KnowPriceContract.PATH_ITEM + "/*/*", ITEM_FOR_NOTIFICATION);
          matcher.addURI(authority, KnowPriceContract.PATH_LOCATION, LOCATION);
@@ -96,6 +96,23 @@ public class KnowPriceProvider extends ContentProvider {
                         projection,
                         selection,
                         selectionArgs,
+                        null,
+                        null,
+                        sortOrder
+                );
+                break;
+            }
+            case FILTER_CATEGORY:
+            {
+                String filter = KnowPriceContract.CategoryEntry.getFilterFromUri(uri);
+                String[] sArgs = new String[]{"%"+filter+"%"};
+                String sSelection =
+                        KnowPriceContract.CategoryEntry.COLUMN_CATEGORY_NAME + " LIKE ?";
+                retCursor = mOpenHelper.getReadableDatabase().query(
+                        KnowPriceContract.CategoryEntry.TABLE_NAME,
+                        projection,
+                        sSelection,
+                        sArgs,
                         null,
                         null,
                         sortOrder

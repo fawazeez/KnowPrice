@@ -12,8 +12,10 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.os.ResultReceiver;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
@@ -33,7 +35,7 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
 
-public class MainActivity extends AppCompatActivity implements CategoryFragment.Callback, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
+public class MainActivity extends AppCompatActivity implements CategoryFragment.Callback, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, SearchView.OnQueryTextListener {
     private final String LOG_TAG = MainActivity.class.getSimpleName();
     private static final String OFFERFRAGMENT_TAG = "OFTAG";
     protected Location mLastLocation;
@@ -88,6 +90,12 @@ public class MainActivity extends AppCompatActivity implements CategoryFragment.
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_offer, menu);
+
+        final MenuItem searchItem = menu.findItem(R.id.action_search);
+        final SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
+        searchView.setOnQueryTextListener(this);
+
+
         GoogleApiAvailability apiAvailability = GoogleApiAvailability.getInstance();
         int resultcode = apiAvailability.isGooglePlayServicesAvailable(this);
         MenuItem item = menu.findItem(R.id.action_LocationSync);
@@ -223,6 +231,21 @@ public class MainActivity extends AppCompatActivity implements CategoryFragment.
         startService(intent);
     }
 
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        newText = newText.trim().toLowerCase();
+        CategoryFragment ff = (CategoryFragment) getSupportFragmentManager().findFragmentById(R.id.fragment_category);
+        if (null != ff) {
+            ff.onLocationChanged(newText);
+        }
+        return false;
+    }
+
     private class AddressResultReceiver extends ResultReceiver{
       Context mContext;
         public AddressResultReceiver(Handler handler,Context context) {
@@ -234,7 +257,6 @@ public class MainActivity extends AppCompatActivity implements CategoryFragment.
         protected void onReceiveResult(int resultCode, Bundle resultData) {
             mCountryOutput = resultData.getString(Constants.RESULT_COUNTRY_KEY);
             mCityOutput = resultData.getString(Constants.RESULT_CITY_KEY);
-            Log.i(LOG_TAG,mCountryOutput);
             if (resultCode == Constants.SUCCESS_RESULT) {
             Utility.setPreferredLocation(mContext,mCountryOutput,mCityOutput);
                 syncUserLocation(true);
@@ -255,7 +277,7 @@ public class MainActivity extends AppCompatActivity implements CategoryFragment.
              if (!country.equals(mCountry) || !city.equals(mCity) || sync){
                 CategoryFragment ff = (CategoryFragment) getSupportFragmentManager().findFragmentById(R.id.fragment_category);
                 if (null != ff) {
-                    ff.onLocationChanged();
+                    ff.onLocationChanged(null);
                 }
                 OfferActivityFragment df = (OfferActivityFragment) getSupportFragmentManager().findFragmentByTag(OFFERFRAGMENT_TAG);
                 if (null != df) {

@@ -33,7 +33,7 @@
             android:layout_below="@+id/catImageView"
             android:paddingBottom="@dimen/list_padding"
             android:layout_alignParentBottom="true"
-            android:background="@color/colorAccent"/>
+            android:background="@drawable/border"/>
 
     </RelativeLayout>
 

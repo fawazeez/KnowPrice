@@ -2,21 +2,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.adupp.aduppil.knowprice.OfferActivity">
+    <item android:id="@+id/action_search"
+        android:title="@string/action_search"
+        android:orderInCategory="100"
+        app:actionViewClass="android.support.v7.widget.SearchView"
+        app:showAsAction="always"/>
     <item
         android:id="@+id/action_shoppingList"
         android:orderInCategory="200"
         android:icon="@drawable/ic_note_add"
         android:title="@string/action_shoppingList"
-        app:showAsAction="always" />
+        app:showAsAction="ifRoom" />
     <item
         android:id="@+id/action_LocationSync"
         android:orderInCategory="300"
         android:icon="@drawable/ic_my_location"
         android:title="@string/action_LocationSync"
-        app:showAsAction="always" />
+        app:showAsAction="ifRoom" />
     <item
         android:id="@+id/action_settings"
-        android:orderInCategory="100"
+        android:orderInCategory="400"
         android:title="@string/action_settings"
         app:showAsAction="never" />
 </menu>

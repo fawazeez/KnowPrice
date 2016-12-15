@@ -78,12 +78,12 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
     public void onBindViewHolder(ViewHolder holder, int position) {
         mCursor.moveToPosition(position);
         String category = mCursor.getString(CategoryFragment.COL_CATEGORY_NAME);
-        holder.categoryView.setText(category);
+        holder.categoryView.setText(category.substring(0,1).toUpperCase() + category.substring(1));
         holder.categoryView.setContentDescription(mContext.getString(R.string.a11y_category,category));
 
         holder.imageView.setContentDescription(mContext.getString(R.string.a11y_category,category));
         String imgURL = "http://test.mmivisionuae.com/category/"+mCursor.getString(CategoryFragment.COL_CATEGORY_IMAGE)+".jpg";
-        Picasso.with(mContext).load(imgURL).placeholder(R.mipmap.ic_launcher).error(R.drawable.connection_error).into(holder.imageView);
+        Picasso.with(mContext).load(imgURL).placeholder(R.mipmap.ic_launcher).error(R.drawable.connection_error).resize(100,100).into(holder.imageView);
         mICM.onBindViewHolder(holder, position);
     }
 
